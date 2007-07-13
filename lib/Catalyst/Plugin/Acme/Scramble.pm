@@ -8,11 +8,11 @@ Catalyst::Plugin::Acme::Scramble - tset the budnos of lieibiglty and dstraneotme
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
@@ -40,7 +40,6 @@ sub finalize {
 
     if ( $1 eq 'plain' )
     {
-        die;
         _scramble_block( \$c->response->{body} );
     }
     else
@@ -146,9 +145,14 @@ L<http://search.cpan.org/dist/Catalyst-Plugin-Acme-Scramble>
 
 =back
 
+=head1 TODO
+
+Support application/xhtml+xml? If it's served that way, or even as any
+XML, we could use an XML parser and just scramble the #text parts.
+
 =head1 SEE ALSO
 
-L<Catalyst>.
+L<Catalyst>, L<Catalyst::Runtime>.
 
 =head1 COPYRIGHT & LICENSE
 
